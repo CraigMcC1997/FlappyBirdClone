@@ -200,8 +200,8 @@ Transform:
   m_GameObject: {fileID: 101030147}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.68, z: 0}
-  m_LocalScale: {x: 6.553924, y: 2.4849, z: 2.4849}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalScale: {x: 6.6358485, y: 2.4849, z: 2.4849}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 449883567}
   - component: {fileID: 449883568}
   m_Layer: 0
-  m_Name: base
+  m_Name: Ground
   m_TagString: Collision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

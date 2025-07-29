@@ -18,7 +18,7 @@ public class BirdController : MonoBehaviour
         hit = audios[2];
         die = audios[3];
     }
-    
+
     void Jump()
     {
         if (!gameManager.IsGameOver())
@@ -59,7 +59,9 @@ public class BirdController : MonoBehaviour
             hit.Play(0);
             gameManager.EndGame();
             scoreManager.SaveHighScore();
-            die.Play(0);
+
+            if (!collision.gameObject.name.Contains("Ground"))
+                die.Play(0);
         }
     }
 
