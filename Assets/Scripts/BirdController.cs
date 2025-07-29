@@ -5,18 +5,25 @@ public class BirdController : MonoBehaviour
     Rigidbody2D rb;
     public ScoreManager scoreManager;
     public GameManager gameManager;
+    AudioSource flap, point, hit, die;
 
     float jumpForce = 10.0f; // Adjust the jump force as needed
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        AudioSource[] audios = GetComponents<AudioSource>();
+        flap = audios[0];
+        point = audios[1];
+        hit = audios[2];
+        die = audios[3];
     }
-
+    
     void Jump()
     {
         if (!gameManager.IsGameOver())
         {
+            flap.Play(0);
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
     }
@@ -49,8 +56,10 @@ public class BirdController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Collision"))
         {
+            hit.Play(0);
             gameManager.EndGame();
             scoreManager.SaveHighScore();
+            die.Play(0);
         }
     }
 
@@ -58,6 +67,7 @@ public class BirdController : MonoBehaviour
     {
         if (!gameManager.IsGameOver())
         {
+            point.Play(0);
             if (other.gameObject.name.Contains("Trigger"))
                 scoreManager.UpdateCurrentScore();
         }
